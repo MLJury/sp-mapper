@@ -1,3 +1,4 @@
+using Kama.DatabaseModel;
 using NUnit.Framework;
 
 namespace Tests
@@ -10,9 +11,16 @@ namespace Tests
         }
 
         [Test]
-        public void Test1()
+        public void TestSpMapper()
         {
-            Assert.Pass();
+            var conn = new
+            {
+                connString = "Data Source=46.225.116.210;Initial Catalog=Kama.Mefa.Azmoon;User ID=kama; Password=K@maPMGs@dUL98"
+                ,
+                nameSpace = "Kama.Mefa.Azmoon.DataSource"
+            };
+            var generator = new Generator(conn.connString, "dbo");
+            string generatedText = generator.Generate(conn.nameSpace);
         }
     }
 }
