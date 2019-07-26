@@ -1,5 +1,6 @@
 using Kama.DatabaseModel;
 using NUnit.Framework;
+using System.IO;
 
 namespace Tests
 {
@@ -21,6 +22,8 @@ namespace Tests
             };
             var generator = new Generator(conn.connString, "dbo");
             string generatedText = generator.Generate(conn.nameSpace);
+
+            File.WriteAllText("C:\\Users\\110\\Desktop\\GeneratedSpMapper.cs", generatedText);
         }
     }
 }
